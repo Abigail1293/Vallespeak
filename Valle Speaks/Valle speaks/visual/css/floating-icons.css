@@ -1,0 +1,57 @@
+/*<!-- Floating Toolbar-->*/
+
+.icons{
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	position: absolute;
+	z-index: 1001;
+	background: #00adb7;
+}
+
+.icons ul{
+	padding: initial;
+}
+
+.icons ul li{
+	height:  40px;
+	width: 60px;
+	list-style-type: none;
+	padding-left: 5px;
+	padding-top: 6px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.icons-sub{
+	top: 19%;
+	left: 50px;
+	background-color: rgba(0,173,183,0.5);
+	transform: translateY(-50%);
+	position: absolute;
+	margin-left: 10px;
+	z-index: 1001;
+}
+
+.icons-sub ul{
+	padding-left: 0px;
+}
+
+.icons-sub ul li{
+	height:  40px;
+	width: 60px;
+	list-style-type: none;
+	padding-left: 5px;
+	padding-top: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.ellipsis{
+	white-space: nowrap; 
+  	width: 125px; 
+  	overflow: hidden;
+	text-overflow: ellipsis; 
+	margin-bottom: 0rem !important; 
+	
+}

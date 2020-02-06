@@ -1,0 +1,11 @@
+.brand-logo {
+    color: #000 !important;
+}
+
+.swal-button--catch {
+    background-color: #003948 !important;
+}
+
+.swal-button:focus {
+    background-color: #003948 !important;
+}

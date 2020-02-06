@@ -1,0 +1,690 @@
+@font-face {
+  font-family: "BibliotecaPlandi";
+  src: url("fonts/Palanquin-Regular.ttf");
+}
+
+@font-face {
+  font-family: "BibliotecaPlandiBold";
+  src: url("/css/fonts/Palanquin-Bold.ttf");
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+
+.sB{
+  position: relative;
+  width: 100%;
+  height: 2em;
+  background-color: black;
+  -webkit-app-region: drag; 
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.btn-outline-info-change{
+	border-color: #003948 !important;
+ }
+
+.btn-radius{
+  border-radius: 20px !important;
+}
+
+.footPlandi{
+    width: 7em;
+}
+
+.col{
+    margin-left: 25%;
+    margin-right:25%;
+}
+
+.color-green{
+  color: rgb(10, 29, 35);  
+  background: #003948;
+}
+
+.color-black{
+  color: rgb(10, 29, 35);
+  background: #003948;
+}
+
+
+.col-xs-1{
+  width: 3em;
+}
+
+#the-canvas{
+  background: transparent;
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+}
+
+.zoom-icon{
+  background-image:url(../pics/zoom.png)!important;
+  background-size:44px 22px !important;
+}
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 999;   
+     -webkit-user-select: none;  
+     -moz-user-select: none;    
+     -ms-user-select: none;      
+     user-select: none; 
+}
+
+.navbar-icon{
+  margin-left:  20px;
+  float: left;
+}
+
+.navbar-buttons{
+  margin-left:  20px;
+  margin-right: 10px;
+  width: 85%;
+  float: left;
+}
+
+/* The navigation bar */
+.toolbar {
+    /*background-color: #333;*/
+    border-radius: 5px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 25%; /* Position the navbar at the top of the page */
+    z-index: 1001;
+    padding-left: 10px;
+    width: 50px;
+    background: rgb(210,210,210);
+}
+
+
+.toolbar li {
+  list-style: none;
+}
+.toolbar span{
+  height: 30px;
+}
+
+.navbar-buttons li{
+  position:relative;
+  display: inline-block;
+}
+
+.vertical-gradient{
+  background: #00adb7; /* Old browsers */
+  background: -moz-linear-gradient(left, #00adb7 0%, #13aab2 46%, #39acb2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #00adb7 0%,#13aab2 46%,#39acb2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #00adb7 0%,#13aab2 46%,#39acb2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00adb7', endColorstr='#39acb2',GradientType=1 ); /* IE6-9 */
+}
+
+.horizontal-gradient{
+  background: rgba(210,210,210,1);
+  background: -moz-linear-gradient(top, rgba(210,210,210,1) 0%, rgba(209,209,209,1) 0%, rgba(219,219,219,1) 65%, rgba(232,232,232,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,210,210,1)), color-stop(0%, rgba(209,209,209,1)), color-stop(65%, rgba(219,219,219,1)), color-stop(100%, rgba(232,232,232,1)));
+  background: -webkit-linear-gradient(top, rgba(210,210,210,1) 0%, rgba(209,209,209,1) 0%, rgba(219,219,219,1) 65%, rgba(232,232,232,1) 100%);
+  background: -o-linear-gradient(top, rgba(210,210,210,1) 0%, rgba(209,209,209,1) 0%, rgba(219,219,219,1) 65%, rgba(232,232,232,1) 100%);
+  background: -ms-linear-gradient(top, rgba(210,210,210,1) 0%, rgba(209,209,209,1) 0%, rgba(219,219,219,1) 65%, rgba(232,232,232,1) 100%);
+  background: linear-gradient(to bottom, rgba(210,210,210,1) 0%, rgba(209,209,209,1) 0%, rgba(219,219,219,1) 65%, rgba(232,232,232,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2d2d2', endColorstr='#e8e8e8', GradientType=0 );
+}
+
+
+#player-audio{
+    margin-left: 15px; 
+    margin-top: 80px; 
+    display: block; 
+    position: absolute; 
+    z-index: 1000;
+}
+
+/*754, 1077*/
+@media screen and (max-width: 1000px) , screen and (max-height: 660px){
+  /* Main content */
+  .main {
+      margin-top: 0px; /* Add a top margin to avoid content overlay */
+      margin-left: 0px;
+  }
+
+  #player-audio{
+    margin-top: 35px;
+  }
+}
+
+@media screen and (max-width: 1095px){
+  .navbar-buttons{
+    width: 80%;
+  }
+}
+
+.cover-image{
+    height: 100%;
+    width: 100%;
+     -webkit-user-select: none;  
+     -moz-user-select: none;    
+     -ms-user-select: none;      
+     user-select: none;
+
+     background: url(../images/fondo.png) no-repeat center center fixed; 
+     -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.glyphicon.glyphicon-one-fine-full-dot {
+    overflow: hidden;
+}
+
+.glyphicon.glyphicon-one-fine-full-dot:before {
+    content:"\25cf";
+    font-size: 3em;
+}
+
+a{
+  color: rgb(10, 29, 35);
+}
+
+.btn:hover,
+.btn:focus { 
+    color: rgb(255, 255, 255);
+}
+.btn-primary {
+  background-color: rgb(85, 85, 85);
+  border-color: rgb(85, 85, 85);
+  /*background-color: rgb(1, 168, 1);
+  border-color: rgb(1, 150, 1);*/
+}
+.btn-primary:hover{
+  color: #fff;
+  background-color: rgb(1, 168, 1);
+  border-color: rgb(1, 168, 1);
+}
+
+.btn-primary:focus {
+  color: #fff;
+  background-color: rgb(1, 168, 1);
+  border-color: rgb(1, 168, 1);
+}
+
+/*Div de notas*/
+.div-note {
+    position: absolute;
+    z-index: 4999;
+    text-align: center;
+}
+.div-note-header {
+    cursor: move;
+    z-index: 5000;
+    background: #00adb7;
+    color: #fff;
+}
+/*Div de audio*/
+.div-audio {
+    cursor: move;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    z-index: 4999;
+    border-radius: 100px;
+    /*background: rgb(0, 150, 136);*/
+
+    background-image: url('icons/Recurso 4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 11px;
+    margin: 0px;
+
+    text-align: center;
+
+}
+
+.div-audio:hover {
+  background-image: url('icons/Recurso 8.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.div-audio:hover .tooltip-media{
+  display: block;
+  
+}
+
+.div-audio .tooltip-media{
+  display: none;
+  background: #F18300;
+}
+
+.div-audio-header {    
+    z-index: 5000;
+}
+/*Div de video*/
+.div-video {
+    cursor: move;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    z-index: 4999;
+    border-radius: 100px;
+    /*background: rgb(0, 150, 136);*/
+    background-image: url('icons/Recurso 3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 11px;
+    margin: 0px;
+    
+}
+
+.div-video:hover {
+  background-image: url('icons/Recurso 7.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-align: center;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.div-video:hover .tooltip-media{
+  display: block
+}
+
+.div-video .tooltip-media{
+  display: none;
+  background: #0078BD;
+}
+
+.div-video-header {    
+    z-index: 5000;
+    /*background: rgb(0, 150, 136);*/
+    color: #fff;
+}
+
+/*Div de video player*/
+.div-video-player{
+    position: absolute;
+    z-index: 4999;
+    text-align: center;
+}
+.div-video-player-header{
+    cursor: move;
+    z-index: 5000;
+    background:  #0A1D23;
+    color: #5CAF30 ;
+}
+/*Div de Juego*/
+.div-juego {
+    cursor: move;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    z-index: 4999;
+    border-radius: 100px;
+    /*background: rgb(255, 152, 0);*/
+
+    background-image: url('icons/Recurso 2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 11px;
+    margin: 0px;
+
+    text-align: center;
+}
+
+.div-juego:hover {
+  background-image: url('icons/Recurso 6.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.div-juego:hover .tooltip-media{
+  display: block
+}
+
+.div-juego .tooltip-media{
+  display: none;
+  background: #00ACB7;
+}
+
+.div-juego-header {    
+    z-index: 5000;
+    /*background: rgb(255, 152, 0);*/
+    color: #fff;
+}
+
+/*Div de Juego player*/
+.div-juego-player{
+    position: absolute;
+    z-index: 4999;
+}
+.div-juego-player-header{
+    cursor: move;
+    z-index: 5000;
+}
+.nav-juego{
+  background-color: #bdcad2 !important;
+  padding: .5rem 1rem;
+  display: block !important;
+  height: 3.5rem;
+}
+
+/*Div de Examen*/
+.div-examen {
+  cursor: move;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  z-index: 4999;
+  border-radius: 100px;
+  /*background: rgb(255, 152, 0);*/
+
+  background-image: url('icons/Recurso 2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 11px;
+  margin: 0px;
+
+  text-align: center;
+}
+
+.div-examen:hover {
+background-image: url('icons/Recurso 6.png');
+background-position: center;
+background-repeat: no-repeat;
+
+-webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+.div-examen:hover .tooltip-media{
+display: block
+}
+
+.div-examen .tooltip-media{
+display: none;
+background: #00ACB7;
+}
+
+.div-examen-header {    
+  z-index: 5000;
+  /*background: rgb(255, 152, 0);*/
+  color: #fff;
+}
+
+/*Div de Juego player*/
+.div-examen-player{
+  position: absolute;
+  z-index: 4999;
+}
+.div-examen-player-header{
+  cursor: move;
+  z-index: 5000;
+}
+.nav-examen{
+background-color: #bdcad2 !important;
+padding: .5rem 1rem;
+display: block !important;
+height: 3.5rem;
+}
+
+/*Div de PDF*/
+.div-pdf {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    z-index: 4999;
+    border-radius: 10px;
+    border-radius: 100px;
+    /*background: rgb(0, 150, 136);*/
+    background-image: url('icons/Recurso 1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 11px;
+    margin: 0px;
+
+    text-align: center;
+}
+
+.div-pdf:hover {
+  background-image: url('icons/Recurso 5.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.div-pdf:hover .tooltip-media{
+  display: block
+}
+
+.div-pdf .tooltip-media{
+  display: none;
+  background: #D80027;
+}
+
+.div-pdf-header {
+    cursor: move;
+    z-index: 5000;
+    /*background: rgb(244, 67, 54);*/
+    color: #fff;
+}
+
+.middle-input{
+  width: 80px !important;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  }
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+} 
+
+.sobra{
+  -webkit-box-shadow: 2px 4px 14px 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 2px 4px 14px 1px rgba(0,0,0,0.3);
+  box-shadow: 2px 4px 14px 1px rgba(0,0,0,0.3);
+}
+/*.toolbar li ul {  
+  position: absolute;  
+}
+
+.toolbar li ul li{
+  position: relative;  
+  background: rgba(218,218,218,0.5);
+  top: -27px;
+}*/
+.h-submenu
+{
+    overflow: hidden;
+    display: block;
+    /*background-color: #333;*/
+    position: fixed; /* Set the navbar to fixed position */
+    top: 30px; /* Position the navbar at the top of the page */
+    z-index: 90000;
+}
+.h-submenu li
+{
+  position: relative; 
+  margin: 0px; 
+  padding: 0px;
+}
+
+/*
+.submenu
+{
+    position:absolute;
+    float:left;
+}
+.submenu li
+{
+  position: relative;  
+  background: rgba(0,173,183,0.8);
+  top: -43px;
+}
+*/
+
+.gauss-blur-effect{
+  -webkit-filter: blur(2px);
+  filter: url('/media/blur.svg#blur'); /* older Firefox - http://jordanhollinger.com/media/blur.svg */
+  filter: blur(2px);
+}
+
+/*
+
+
+#page-id {
+    margin-left: 50%;
+}
+#container { width: 80%; margin: auto; padding: 20px; }
+.row { height: 150px; margin-bottom: 20px; position: relative; }
+.row div { height: 100%; }
+.column-2 {width: 50%; }
+.left {float: left; }
+.right {float: right; }*/
+
+
+/*.sB:hover{
+	height: 2em;
+}*/
+
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes swing {
+  20% {
+  -webkit-transform: rotate3d(0, 0, 1, 15deg);
+  transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+  -webkit-transform: rotate3d(0, 0, 1, -10deg);
+  transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+  -webkit-transform: rotate3d(0, 0, 1, 5deg);
+  transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+  -webkit-transform: rotate3d(0, 0, 1, -5deg);
+  transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+  -webkit-transform: rotate3d(0, 0, 1, 0deg);
+  transform: rotate3d(0, 0, 1, 0deg);
+  }
+  }
+  @keyframes swing {
+  20% {
+  -webkit-transform: rotate3d(0, 0, 1, 15deg);
+  transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+  -webkit-transform: rotate3d(0, 0, 1, -10deg);
+  transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+  -webkit-transform: rotate3d(0, 0, 1, 5deg);
+  transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+  -webkit-transform: rotate3d(0, 0, 1, -5deg);
+  transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+  -webkit-transform: rotate3d(0, 0, 1, 0deg);
+  transform: rotate3d(0, 0, 1, 0deg);
+  }
+  }

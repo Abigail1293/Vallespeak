@@ -1,0 +1,379 @@
+/*xs*/
+
+	.ACC{
+
+	}
+
+	.ACC>div{
+	  float: left;
+	  margin-left: 1em;
+	  padding: 0em;
+	  cursor: pointer;
+	}
+
+	.ACC>div>img{
+		  width: 2.5em;
+		  margin-top: 1em;
+	}
+
+	.contLibros>div{
+  float: left;
+  width: 30%;
+  height: 27em;
+  padding: 1%;
+  margin-left: 3em;
+  margin-top: 1em;
+  cursor: pointer;
+  background-color: #d8d8d8;
+  border-radius: 1em;
+	}
+
+	.contLibros>div:hover{
+		border: solid 1px;
+		border-color: blue;
+		
+	}
+
+	.contLibros>div>img{
+  float: left;
+  width: 16em;
+  margin-left: 9%;
+  margin-top: 8%;
+	}
+
+	.contLibros>div>span{
+	  float: left;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  width: 95%;
+	  margin-top: 2%;
+	  text-align: center;
+	  font-weight: bold;
+	}
+
+
+	.infoLibro{
+	  background-color: #D8D8D8;
+	  /* float: left; */
+	  position: absolute;
+	  width: 38%;
+	  height: 55em;
+	  margin-top: -2em;
+	  margin-left: 35em;
+	  z-index: -1;
+	}
+
+	.contCanvas{
+	  margin-top: 10em;
+	  margin-left: 3%;
+	}
+
+	#the-canvas{
+		  width: 14em;
+	}
+
+	.btnAbrir{
+		margin-top: 0.2em;
+  		margin-left: 4em;
+	}
+
+	.footPlandi{
+	  width: 7em;
+	  margin-top: 1em;
+	}
+
+	.footAnglo{
+	  width: 8em;
+	  margin-top: 1.3em;
+	}
+
+/*sm*/
+@media (min-width: 768px) {
+	.ACC{
+
+	}
+
+	.ACC>div{
+	  float: left;
+	  margin-left: 1em;
+	  padding: 0.3em;
+	  cursor: pointer;
+	}
+
+	.ACC>div>img{
+		width: 3.5em;
+	}
+
+	.contLibros>div{
+	  float: left;
+	  width: 27%;
+	  height: 11em;
+	  padding: 1%;
+	  margin-left: 1em;
+	  margin-top: 1em;
+	  cursor: pointer;
+	  background-color: #d8d8d8;
+	  border-radius: 1em;	
+	}
+
+	.contLibros>div:hover{
+		border: solid 1px;
+		border-color: blue;
+		
+	}
+
+	.contLibros>div>img{
+	  float: left;
+	  width: 5em;
+	  margin-left: 16%;
+	  margin-top: 12%;
+	}
+
+	.contLibros>div>span{
+	  float: left;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  width: 95%;
+	  margin-top: 11%;
+	  text-align: center;
+	  font-weight: bold;
+	}
+
+	.infoLibro{
+	  background-color: #D8D8D8;
+	  /* float: left; */
+	  position: absolute;
+	  width: 38%;
+	  height: 55em;
+	  margin-top: -2em;
+	  margin-left: 35em;
+	  z-index: -1;
+	}
+
+
+
+	#the-canvas{
+		 width: 17em;
+	}
+
+	.contCanvas{
+	  margin-top: 8em;
+	  margin-left: -3%;
+	}
+
+	.btnAbrir{
+		margin-top: 0.2em;
+  		margin-left: 5em;
+	}
+
+	.footPlandi{
+	  width: 8em;
+	  margin-top: 1em;
+	}
+
+	.footAnglo{
+	  width: 8.5em;
+	  margin-top: 1.3em;
+	  margin-left: 1em;
+	}
+
+}
+
+/*md*/
+@media (min-width: 992px) {
+	.ACC{
+
+	}
+
+	.ACC>div{
+	  float: left;
+	  margin-left: 1em;
+	  padding: 1em;
+	  cursor: pointer;
+	}
+
+	.ACC>div>img{
+		width: 3.8em;
+	}
+
+	.contLibros>div{
+  float: left;
+  width: 29%;
+  height: 25em;
+  padding: 1%;
+  margin-left: 2em;
+  margin-top: 2em;
+  cursor: pointer;
+  background-color: #d8d8d8;
+  border-radius: 1em;
+	}
+
+	.contLibros>div:hover{
+		border: solid 1px;
+		border-color: blue;
+		
+	}
+
+	.contLibros>div>img{
+  float: left;
+  width: 16em;
+  margin-left: 8%;
+  margin-top: 7%;
+
+	}
+
+	.contLibros>div>span{
+	  float: left;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  width: 95%;
+	  margin-top: 11%;
+	  text-align: center;
+	  font-weight: bold;
+	}
+
+	.infoLibro{
+	  background-color: #D8D8D8;
+	  /* float: left; */
+	  position: absolute;
+	  width: 38%;
+	  height: 55em;
+	  margin-top: -2em;
+	  margin-left: 46em;
+	  z-index: -1;
+	}
+
+
+
+	#the-canvas{
+		 width: 19em;
+	}
+
+	.contCanvas{
+	  margin-top: 5em;
+	  margin-left: 8%;
+	}
+
+	.btnAbrir{
+		margin-top: 0.2em;
+  		margin-left: 6em;
+	}
+
+	.footPlandi{
+	  width: 9.5em;
+	  margin-top: 0.5em;
+	}
+
+	.footAnglo{
+	  width: 9.5em;
+	  margin-top: 1.1em;
+	  margin-left: 1em;
+	}
+
+}
+
+/*lg*/
+@media (min-width: 1200px) {
+
+	.ACC{
+
+	}
+
+	.ACC>div{
+	  float: left;
+	  margin-left: 1em;
+	  padding: 1em;
+	  cursor: pointer;
+	}
+
+	.ACC>div>img{
+		width: 5em;
+	}
+
+
+
+
+
+
+	.contLibros>div{
+	  float: left;
+	  width: 27%;
+	  height: 16em;
+	  padding: 1%;
+	  margin-left: 1em;
+	  margin-top: 1em;
+	  cursor: pointer;
+	  background-color: #8ea4b0;
+	  border-radius: 1em;
+	  color: white;	
+	}
+
+	.contLibros>div:hover{
+		border: solid 5px;
+		border-color: #00BAC2;
+		
+	}
+
+
+
+	.contLibros>div>img{
+	  float: left;
+	  width: 9em;
+	  margin-left: 15%;
+	  margin-top: 12%;	
+	}
+
+	.contLibros>div>span{
+	  float: left;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  width: 95%;
+	  margin-top: 1%;
+	  text-align: center;
+	    font-weight: bold;
+	}
+
+
+	.infoLibro{
+	  background-color: #D8D8D8;
+	  /* float: left; */
+	  position: absolute;
+	  width: 38%;
+	  height: 55em;
+	  margin-top: -2em;
+	  margin-left: 55em;
+	  z-index: -1;
+	}
+
+
+
+	#the-canvas{
+		 width: 23em;
+	}
+
+	.contCanvas{
+	  margin-top: 2em;
+	  margin-left: 10%;
+	}
+
+	.btnAbrir{
+		margin-top: 0.2em;
+  		margin-left: 10em;
+	}
+
+	.footPlandi{
+	  width: 10em;
+	  margin-top: 0.5em;
+	}
+
+	.footAnglo{
+	  width: 10.5em;
+	  margin-top: 1.1em;
+	  margin-left: 1em;
+	}
+
+}

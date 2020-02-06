@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width = 1050, user-scalable = no" />
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+		<!-- Tamaño minimo optimo de patalla 1060x760 -->  
+		<title>Plataforma Lite Neutron</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/estiloVisor.css">
+		<link rel="stylesheet" href="css/button.css">
+		<link rel="stylesheet" href="css/view-audio.css">
+		<link rel="stylesheet" type="text/css" href="node_modules/print-js/dist/print.min.css">	
+		<script src="css/sprite/iconwc.js"></script>
+		<link rel="stylesheet" href="css/glyph-icon.css">
+		<link rel="stylesheet" href="css/floating-icons.css">		
+	</head>
+	<body>	
+
+		<div id="canvas"></div>
+
+		<div class="zoom-icon zoom-icon-in" style="display: none;"></div>
+
+		<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar" 
+		style="background: #003948;">
+
+			<a class="navbar-brand mr-0 mr-md-2" style="-webkit-app-region: drag">
+				<img src="images/plandi.png" 
+				class="footPlandi swing rounded float-left">
+			</a>
+
+			<div class="navbar-nav-scroll">
+
+				<ul class="navbar-nav bd-navbar-nav flex-row">
+					
+					<!--Horizontal Header Top Tool-->
+
+					<li class="nav-item">
+						<a id="home" 
+				    	class="btn btn-outline-info btn-outline-info-change" 
+				    	data-toggle="tooltip" 
+				    	style="display: none;" 
+				    	role="button"
+				    	data-placement="right">
+				    		<svg-icon class="glyph-icon-acent glyph-icon-white">
+			  	  				<src href="css/sprite/sprite.svg#si-glyph-house" />
+			  	  			</svg-icon>
+				    	</a> 
+					</li>
+
+					<li class="nav-item">
+						<a id="tag" 
+				    	class="btn btn-outline-info btn-outline-info-change" 
+				    	data-toggle="tooltip" 
+				    	role="button"
+						data-placement="bottom"
+						title="Page Maker">
+				    		<svg-icon class="glyph-icon-acent glyph-icon-white">
+				    			<src href="css/sprite/sprite.svg#si-glyph-bookmark" />
+				    		</svg-icon>
+				    	</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="go-pagemark" 
+				    	class="btn btn-outline-info btn-outline-info-change" 
+				    	data-toggle="tooltip" 
+						data-placement="bottom"
+						title="Go to page marked">
+				    		<svg-icon class="glyph-icon-acent glyph-icon-white">
+				    			<src href="css/sprite/sprite.svg#si-glyph-tag-1" />
+				    		</svg-icon>
+				    	</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="back" 
+				    	class="btn btn-outline-info btn-outline-info-change" 
+				    	data-toggle="tooltip" 
+						data-placement="bottom"
+						title="Last Page">
+				    		<svg-icon class="glyph-icon-acent glyph-icon-white">
+				    			<src href="css/sprite/sprite.svg#si-glyph-arrow-backward" />
+				    		</svg-icon>
+				    	</a>
+					</li>
+
+					<li class="nav-item">
+						<input id="page-id" 
+						type="text" 
+						name="page" 
+						class="form-control middle-input"
+						placeholder="Page">
+					</li>
+
+					<li class="nav-item ml-3">
+						<input id="ir" 
+						type="button" 
+						class="btn btn-info btn-radius" 
+						value="Go"
+						data-toggle="tooltip" 
+						data-placement="bottom"
+						title="Go to Page">
+					</li>
+
+					<li class="nav-item">
+						<a id="forward"  
+						class="btn btn-outline-info btn-outline-info-change" 
+						data-toggle="tooltip" 
+						data-placement="bottom"
+						title="Next Page">
+							<svg-icon class="glyph-icon-acent glyph-icon-white">
+								<src href="css/sprite/sprite.svg#si-glyph-arrow-forward" />
+							</svg-icon>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="print" 
+						class="btn btn-outline-info btn-outline-info-change" 
+						data-toggle="tooltip" 
+						data-placement="bottom"
+						title="Print">
+							<svg-icon class="glyph-icon-acent glyph-icon-white">
+								<src href="css/sprite/sprite.svg#si-glyph-print" />
+							</svg-icon>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<span  
+						id="pages-info" 
+						class="badge badge-pill badge-default" 
+						style="display: none;">1</span>
+					</li>
+
+					<li class="nav-item">
+						<div class="btn-group" 
+						style="font-size:20px;" 
+						role="group">|</div>
+					</li>
+
+					<!-- Horizontal Toolbar View -->
+					<li class="nav-item">
+						<a id="h-pencil" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+
+						<ul id="h-submenu-1" class="collapse h-submenu">
+
+							<li class="nav-item">
+								<a id="h-pencil-1" 
+								type="button" 
+								class="btn badge-primary" 
+								data-toggle="tooltip" 
+								data-placement="right" style="font-size:3px;">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+
+							<li class="nav-item">
+								<a id="h-pencil-2" 
+								type="button" 
+								class="btn badge-primary" 
+								data-toggle="tooltip" 
+								data-placement="right" 
+								style="font-size:4.5px;">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+
+							<li class="nav-item">
+								<a id="h-pencil-3" 
+								type="button" 
+								class="btn badge-primary" 
+								data-toggle="tooltip" 
+								data-placement="right" 
+								style="font-size:6px;">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-pencil-mark" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-text-background"></span>
+						</a>
+
+						<ul id="h-submenu-2" class="collapse h-submenu">
+
+							<li class="nav-item">
+								<a id="h-pencil-mark-1" 
+								type="button" 
+								class="btn badge-primary" 
+								style="font-size:3px;" 
+								data-toggle="tooltip" 
+								data-placement="right">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+
+							<li class="nav-item">
+								<a id="h-pencil-mark-2" 
+								type="button" 
+								class="btn badge-primary" 
+								style="font-size:4.5px;" 
+								data-toggle="tooltip" 
+								data-placement="right">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+
+							<li class="nav-item">
+								<a id="h-pencil-mark-3" 
+								type="button" 
+								class="btn badge-primary" 
+								style="font-size:6px;" 
+								data-toggle="tooltip" 
+								data-placement="right">
+									<span class="glyphicon glyphicon-one-fine-full-dot"></span>
+								</a>
+
+								<br/>
+								<br/>
+							</li>
+
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-eraser" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-erase"></span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-clear" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-screenshot" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-camera"></span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-notes" 
+						type="button" 
+						class="collapse btn badge-primary" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-edit"></span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a id="h-zoom-media" 
+						type="button" 
+						class="collapse btn badge-primary zoom-media" 
+						data-toggle="tooltip" 
+						data-placement="right">
+							<span class="glyphicon glyphicon-zoom-in"></span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<button id="h-color-lapiz" 
+						class="collapse color-lapiz btn jscolor{valueElement:null, value:'000',zIndex:1100, backgroundColor:'transparent', onFineChange:'setTextColor(this)'}" 
+						style="width:5px; height:20px; margin-left: 7px;" 
+						data-toggle="tooltip" 
+						data-placement="right"></button>
+					</li>							
+
+					<li class="nav-item">
+						<div class="collapse btn-group" 
+						style="font-size:20px;" role="group">|</div>
+					</li>
+
+					<!-- Help Info Buttons -->
+					<li class="nav-item">
+						<h4><span  id="media-tool-tip" 
+						class="badge badge-pill badge-info" ></span></h4>
+					</li>	
+
+				</ul>
+				
+			</div>
+
+			<!-- Window Controls -->
+			<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+
+				<li class="nav-item">
+					<a id="minimize-window" 
+					class="btn btn-outline-info btn-outline-info-change" 
+					data-toggle="tooltip" 
+					data-placement="right">
+						<svg-icon class="glyph-icon-acent glyph-icon-yellow">
+							<src href="css/sprite/minimize.svg" />
+						</svg-icon>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a id="maximize-window" 
+					class="btn btn-outline-info btn-outline-info-change" 
+					data-toggle="tooltip" 
+					data-placement="right">
+						<svg-icon class="glyph-icon-acent glyph-icon-azul">
+							<src href="css/sprite/maximize.svg" />
+						</svg-icon>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a id="close-window" 
+					class="btn btn-outline-info btn-outline-info-change" 
+					data-toggle="tooltip" 
+					data-placement="right">
+						<svg-icon class="glyph-icon-acent glyph-icon-red">
+							<src href="css/sprite/close.svg" />
+						</svg-icon>
+					</a>
+				</li>
+
+			</ul>
+
+		</header>
+
+
+		<!-- Floating Toolbar-->
+
+		<div class="icons">
+			
+			<ul>
+				
+				<li>
+					<a id="pencil" 
+					class="btn btn-outline-info" 
+					data-toggle="tooltip" 
+					data-placement="right"
+					title='Page'>
+						<svg-icon class="glyph-icon">
+							<src href="css/sprite/sprite.svg#si-glyph-pencil" />
+						</svg-icon>
+					</a>
+
+					<div class="icons-sub">
+						<ul id="submenu-1" 
+				  		class="collapse">
+							<li>
+								<a id="pencil-1" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x1">
+									<svg-icon class="glyph-icon-1">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+							<li>
+								<a id="pencil-2" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x2">
+									<svg-icon class="glyph-icon-2">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+							<li>
+								<a id="pencil-3" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x3">
+									<svg-icon class="glyph-icon-0">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+
+				<li>
+					<a id="pencil-mark" 
+					class="btn btn-outline-info" 
+					data-toggle="tooltip" 
+					data-placement="right"
+					title="Marker">
+						<svg-icon class="glyph-icon">
+							<src href="css/sprite/sprite.svg#si-glyph-brush-1" />
+						</svg-icon>
+					</a>
+
+					<div class="icons-sub">
+				  		<ul id="submenu-2" 
+				  		class="collapse">
+							<li>
+								<a id="pencil-mark-1" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x1">
+									<svg-icon class="glyph-icon-1">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+							<li>
+								<a id="pencil-mark-2" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x2">
+									<svg-icon class="glyph-icon-2">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+							<li>
+								<a id="pencil-mark-3" 
+								class="btn btn-outline-info" 
+								data-toggle="tooltip" 
+								data-placement="right"
+								title="x3">
+									<svg-icon class="glyph-icon-0">
+										<src href="css/sprite/sprite.svg#si-glyph-circle" />
+									</svg-icon>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+
+				<li>
+					<a id="eraser" 
+			  		class="btn btn-outline-info" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Eraser">
+			  			<svg-icon class="glyph-icon">
+			  				<src href="css/sprite/sprite.svg#si-glyph-erase" />
+			  			</svg-icon>
+			  		</a>
+				</li>
+
+				<li>
+					<a id="clear" 
+			  		class="btn btn-outline-info" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Clean">
+			  			<svg-icon class="glyph-icon">
+			  				<src href="css/sprite/sprite.svg#si-glyph-trash" />
+			  			</svg-icon>
+			  		</a>
+			  		<br/>
+				</li>
+
+				<li>
+					<a id="screenshot" 
+			  		class="btn btn-outline-info" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Screenshot">
+			  			<svg-icon class="glyph-icon">
+			  				<src href="css/sprite/sprite.svg#si-glyph-camera" />
+			  			</svg-icon>
+			  		</a>
+				</li>
+
+				<li>
+					<a id="notes" 
+			  		class="btn btn-outline-info" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Add Note">
+			  			<svg-icon class="glyph-icon">
+			  				<src href="css/sprite/sprite.svg#si-glyph-edit" />
+			  			</svg-icon>
+			  		</a>
+				</li>
+
+				<li>
+					<a id="zoom-media"  
+			  		class="btn btn-outline-info zoom-media" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Zoom">
+			  			<svg-icon class="glyph-icon glyphicon-zoom-in">
+			  				<src href="css/sprite/sprite.svg#si-glyph-zoom-in" />
+			  			</svg-icon>
+			  		</a>
+				</li>
+
+				<li>
+					<button id="color-lapiz" 
+			  		class="color-lapiz btn jscolor{valueElement:null, value:'000',zIndex:1100, backgroundColor:'transparent', onFineChange:'setTextColor(this)'}" 
+			  		style="width:5px; height:20px; margin-left: 7px;" 
+			  		data-toggle="tooltip" 
+						data-placement="right"
+						title="Color Pencil"></button>
+				</li>
+
+			</ul>
+
+		</div>
+
+			<!-- Book Components class="col-lg-8 col-md-8  col-sm-8 col-xs-8 main" -->
+			<div>	
+
+				<div id="magazine-viewport" 
+				class="magazine-viewport">	
+
+					<canvas id="the-canvas"></canvas>
+
+					<canvas id='blank' style='display:none'></canvas>
+
+					<!-- Nota -->
+					<div id="div-note" 
+					class="sobra div-note">
+
+					  	<div id="div-note-header" 
+						class="div-note-header">
+						  
+						  	<ul class="navbar-nav bd-navbar-nav flex-row">						
+								<li class="nav-item">
+									<a id="delete-note" 
+									class="btn btn-outline-info" 
+									data-toggle="modal" 
+									onclick="deleteNote()" 
+									data-target="#myModal" 
+									data-placement="right">
+										<svg-icon class="glyph-icon">
+											<src href="css/sprite/sprite.svg#si-glyph-trash" />
+										</svg-icon>
+									</a>
+								</li>
+
+								<li class="nav-item">
+									<h4>
+										<span  id="pages-info" 
+										class="badge badge-pill badge-info">
+											Note
+										</span>
+									</h4>	
+								</li>
+
+								<li class="nav-item">
+									<a id="close-note" 
+									class="btn btn-outline-info" 
+									data-toggle="tooltip" 
+									data-placement="right">
+										<svg-icon class="glyph-icon">
+											<src href="css/sprite/sprite.svg#si-glyph-button-error" />
+										</svg-icon>
+									</a>
+								</li>
+							</ul>
+					  	</div>
+
+					  	<textarea id="note-text" rows="4"></textarea>
+
+					</div>	
+
+					<!-- Audio -->
+					<div id="view-audio" class="view-audio gradient transition-all" >
+		 
+						<div class="cover">
+							<h5
+							style="margin-bottom: -20px;">
+								<center>
+									<p id="audio-title" class="text-white" 
+									style="padding-left: 30px; padding-top: 15px;">
+										Audio
+									</p>
+								</center>
+							</h5>
+						</div>
+
+						<!--
+						<img 
+						src="images/logo_anglo.png" 
+						alt="" 
+						style="-webkit-user-select: none;">-->
+					 
+						<div class="player gradient">
+					 
+							<a class="btn button gradient" 
+							id="play" 
+							title="">
+								<svg-icon class="glyph-icon-acent glyph-icon-white">
+									<src href="css/sprite/sprite.svg#si-glyph-button-play" />
+								</svg-icon>
+							</a>
+
+							<a class="btn button gradient" 
+							id="mute" 
+							title="">
+								<svg-icon class="glyph-icon-acent glyph-icon-white">
+									<src href="css/sprite/sprite.svg#si-glyph-sound" />
+								</svg-icon>
+							</a>
+
+							<a class="btn button gradient" 
+							id="close" 
+							title="">
+								<svg-icon class="glyph-icon-acent glyph-icon-white">
+									<src href="css/sprite/sprite.svg#si-glyph-button-error" />
+								</svg-icon>
+							</a>
+
+							<input 
+							type="range" 
+							id="seek" 
+							value="0"
+							max=""/>
+								 
+						</div><!-- / player -->
+							 
+					</div><!-- / Container-->
+					
+					<audio id="player-audio" 
+					style="display: none;" 
+					controls></audio>
+
+					<!-- Video -->
+					<div id="div-video-player" 
+					class="sobra div-video-player" 
+					style="display: none; z-index: 5000;" >
+					  	<div id="div-video-player-header" 
+						class="div-video-player-header">
+
+							<div class="d-flex justify-content-between">
+								<h4
+								style="margin-bottom: -20px;">
+									<p id="pages-info-video" 
+									class="text-white" 
+									style="padding-left: 30px; padding-top: 15px;">
+										Titulo del video
+									</p>
+								</h4>
+
+								<a id="close-div-video-player" 
+								class="btn" 
+								data-toggle="tooltip" 
+								data-placement="right">
+									<svg-icon class="glyph-icon-w glyph-icon-gren">
+									  <src href="css/sprite/sprite.svg#si-glyph-button-error" />
+								  </svg-icon>
+								</a>
+							</div>	
+					  		<video id="player-video" 
+					  		style="width: 900px; height: 500px" 
+					  		controls>Tu navegador no admite el elemento 
+					  			<code>video</code>.
+					  		</video>
+
+					  	</div>					  	
+					</div>	
+
+					<!-- Juego -->  
+					<div id="div-juego-player" 
+					class="sobra div-juego-player" 
+					style="display: none; z-index: 5000;" >
+					  	<div id="div-juego-player-header" 
+					  	class="div-juego-player-header">
+
+					  		<!--
+					  		<span  id="pages-info-juego" class="badge badge-pill badge-default">Titulo del juego</span>	
+					  		<a id="close-div-juego-player" type="button" class="btn badge-primary" data-toggle="tooltip" data-placement="right"><span class="glyphicon glyphicon-remove"></span></a><br/>
+							-->
+
+							<nav class="nav-juego">
+
+								<div id="pages-info-juego" 
+								class="navbar-brand noselect" 
+								href="#" 
+								style="-webkit-app-region : drag; width: 50%; height: 4rem;">
+									Titulo del juego
+								</div>
+
+								<a id="close-div-juego-player" 
+								href="javascript:void(0)" 
+								class="btn-cerrar close-btn">
+									<img src="css/btton/cerrar.svg" 
+									style="height: 15px;" 
+									alt="cerrar">
+								</a>
+								<!--
+								<a href="#" 
+								class="btn-regresar return-btn">
+									<img src="css/btton/regresar.svg" 
+									style="height: 15px;" 
+									alt="cerrar">
+								</a>
+								-->
+							</nav>
+
+					  		<div>
+					  			<iframe id="frame-game" 
+									style="width: 1000px; height: 650px"
+									frameBorder="0">					  				
+					  			</iframe>
+					  		</div>
+
+					  	</div>					  	
+					</div>
+
+					<!-- Examen -->
+					<div id="div-examen-player" 
+					class="sobra div-examen-player" 
+					style="display: none; z-index: 5000;" >
+					  	<div id="div-examen-player-header" 
+					  	class="div-examen-player-header">
+
+					  		<!--
+					  		<span  id="pages-info-juego" class="badge badge-pill badge-default">Titulo del juego</span>	
+					  		<a id="close-div-juego-player" type="button" class="btn badge-primary" data-toggle="tooltip" data-placement="right"><span class="glyphicon glyphicon-remove"></span></a><br/>
+							-->
+
+							<nav class="nav-examen">
+
+								<div id="pages-info-examen" 
+								class="navbar-brand noselect" 
+								href="#" 
+								style="-webkit-app-region : drag; width: 50%; height: 4rem;">
+									Titulo del Examen
+								</div>
+
+								<a id="close-div-examen-player" 
+								href="javascript:void(0)" 
+								class="btn-cerrar close-btn">
+									<img src="css/btton/cerrar.svg" 
+									style="height: 15px;" 
+									alt="cerrar">
+								</a>
+								<!--
+								<a href="#" 
+								class="btn-regresar return-btn">
+									<img src="css/btton/regresar.svg" 
+									style="height: 15px;" 
+									alt="cerrar">
+								</a>
+								-->
+							</nav>
+
+					  		<div>
+					  			<iframe id="frame-examen" 
+									style="width: 1000px; height: 650px"
+									frameBorder="0">					  				
+					  			</iframe>
+					  		</div>
+
+					  	</div>					  	
+					</div>
+
+					<!-- Imagen de Fondo -->  
+					<div class="cover-image gauss-blur-effect">	</div>
+
+					<!-- Canvas de Impresion -->  
+					<div id="print-form">
+						<img id="p1" 
+						style='width: 25%; height: 25%;'>
+						<br/>
+						<img id="p2" style='width: 25%; height: 25%;'>
+					</div>		
+
+					<!--<div id="div-audio" class="sobra div-audio">						
+						<div id="div-audio-header" class="div-audio-header">
+							<a id="play-audio" type="button" class="btn badge-primary" data-toggle="modal" data-target="#myModal" data-placement="right" title="Salir"><span class="glyphicon glyphicon-play"></span></a>	
+					  		<span  id="pages-info" class="badge badge-pill badge-default">Audio</span>	
+					  		<a id="close-audio" type="button" class="btn badge-primary" data-toggle="tooltip" data-placement="right" title="Salir"><span class="glyphicon glyphicon-remove"></span></a>						  		
+					  	</div>
+					</div>-->
+					<!-- Video -->
+					<!--<div id="div-video" class="sobra div-video">						
+						<div id="div-video-header" class="div-video-header">
+							<a id="delete-video" type="button" class="btn badge-primary" data-toggle="modal" data-target="#myModal" data-placement="right" title="Salir"><span class="glyphicon glyphicon-play"></span></a>	
+					  		<span  id="pages-info" class="badge badge-pill badge-default">Video</span>	
+					  		<a id="close-video" type="button" class="btn badge-primary" data-toggle="tooltip" data-placement="right" title="Salir"><span class="glyphicon glyphicon-remove"></span></a>	
+					  	</div>
+					</div>-->
+
+					<!-- Modal Para Eliminar Notas -->
+					<div class="modal fade" 
+					id="configDialog" 
+					tabindex="-1" 
+					role="dialog">
+
+						<div class="modal-dialog modal-sm" 
+						role="document">
+
+						    <div class="modal-content">
+						    	<div class="modal-header">
+						    	  	<h5 id="titulo-nota" 
+						    	  	class="modal-title" 
+						    	  	id="exampleModalLabel">
+						    			¿Confirmación?
+						    		</h5>
+						    	</div>
+
+						  		<div id="mens-nota" 
+						  		class="modal-body">
+									Estas seguro de querer eliminar la nota de esta página
+						  		</div>
+
+						    	<div class="modal-footer">
+
+						    		<button id="dismiss" 
+						    		type="button" 
+						    		class="btn btn-secondary cancel-translate" 
+						    		data-dismiss="modal">
+						    			Cancelar
+						    		</button>
+
+						    	  	<button id="accept" 
+						    	  	type="button" 
+						    	  	class="btn btn-primary" 
+						    	  	onclick="acceptDeleteNote(this)">
+						    			OK
+						    		</button>
+
+						    	</div>
+
+						    </div>
+						</div>
+					</div>
+
+					<!-- Modal Para Imprimir hoja -->
+					<div class="modal fade" 
+					id="print-dialog" 
+					tabindex="-1" 
+					role="dialog" >
+
+					  <div class="modal-dialog modal-sm" 
+					  role="document">
+
+					    <div class="modal-content">
+
+					      	<div class="modal-header">
+					        	<h5 id="titulo-impresion" 
+					        	class="modal-title" 
+					        	id="exampleModalLabel">
+					        		¡Alerta!
+								</h5>
+					      	</div>
+
+					      	<div class="modal-body">
+
+								<p id="mens-impresion">
+									Ingresa el numero de página
+								</p>
+
+								<input type="text" 
+								id="page-input" 
+								name="page-input" 
+								style="width: 100%;">
+
+					      	</div>
+
+					      	<div class="modal-footer">
+					        	<button id="dismiss-2" 
+					        	type="button" 
+					        	class="btn btn-secondary cancel-translate" 
+					        	data-dismiss="modal">
+					        		Cancelar
+					        	</button>
+
+					        	<button id="accept-2" 
+					        	type="button" 
+					        	class="btn btn-primary" 
+					        	onclick="if(document.getElementById('page-input').value!='')printDocument(document.getElementById('page-input').value)">
+					        		OK
+					        	</button>
+					      	</div>
+
+					    </div>
+
+					  </div>
+
+					</div>
+
+					<!-- Libro -->
+					<div class="container" style="-webkit-user-select: none;">						
+						<div class="magazine">												
+							<!-- Next button -->
+							<div ignore="1" 
+							class="next-button"></div>
+							<!-- Previous button -->
+							<div ignore="1" 
+							class="previous-button"></div>
+						</div>
+					</div>
+
+				</div>	
+			</div>
+		</div>
+		<script type="text/javascript" src="js/extras/modernizr.2.5.3.min.js"></script>
+		<script type="text/javascript" src="js/extras/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/game/game-controller.js"></script>
+		<script type="text/javascript" src="js/lib/hash.js"></script>
+		<script type="text/javascript" src="js/dateFormat.min.js"></script>
+		<script type="text/javascript" src="js/jscolor.js"></script>
+		<script type="text/javascript" src="js/xml.js"></script>
+		<script type="text/javascript" src="js/visor.js"></script>
+		<script type="text/javascript" src="js/canvasData.js"></script>
+		<script type="text/javascript" src="js/security.js"></script>
+		<script type="text/javascript" src="js/translate.js"></script>
+		<script src="node_modules/moment/min/moment.min.js"></script>
+		<script src="node_modules/print-js/dist/print.min.js"></script>
+		<script type="text/javascript" src="js/vendor/popper.min.js"></script>
+		<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+		
+		<script src="node_modules/aes-js/index.js"></script>
+		<script type="text/javascript" src="node_modules/node-datetime/release/browser/node_datetime.js"></script>
+		<script src="js/view-audio.js"></script>
+
+		<script type="text/javascript">
+		/*
+		* Modificar para diferentes versiones
+		*/
+		var numero_paginas = 0;		
+		var ocultar_barra_herramienta_izquierda = true;
+		var es_una_demo = false;
+		const extension_imagen = 'png';
+		var idioma = 'esp';//	<-- esp: Español	;	eng: Ingles
+		var fecha_caducidad = ''; //	<-- Ejemplo: 2019-03-24 01:14:00.	La validación por fecha de caducidad no se realiza
+		/*
+		* No modificar nada
+		*/
+		// Load native UI library
+		var ngui = require('nw.gui');
+
+		// Get the current window
+		var nwin = ngui.Window.get();
+
+		var book;
+		var max_min = true;
+		var pencil = false, eraser = false, clear = false, mark = false, screenshot = false, notes = false, addNote = false;
+		var pencil_size = 1, mark_size = 1;
+		var color_pencil = '#000';	
+		const ocultar_barra_herramienta_superior = true;
+		function loadApp() {
+			var header = getHeader(); 
+			if(header.caducidad != undefined)
+			{
+				var caducidad_temp = new Date(1000 * header.caducidad);
+				fecha_caducidad = caducidad_temp.toISOString().slice(0,19).replace('T',' ');
+			}
+			if(securityInit(fecha_caducidad)){			
+			pathImg = (pathImg = header.uri.endsWith('\\') ? header.uri : header.uri + '/').includes('\\') ? pathImg.replace(/\\/g, '/'): pathImg; 
+			numero_paginas = Number(header.numpages);
+			if(header.demo!= undefined)es_una_demo = (header.demo.toLowerCase() === 'true');
+			if(header.ocultarbarra!= undefined)ocultar_barra_herramienta_izquierda = (header.ocultarbarra.toLowerCase() === 'true');
+			if(header.idioma!= undefined)idioma = header.idioma.toLowerCase();	
+			bars(ocultar_barra_herramienta_izquierda, ocultar_barra_herramienta_superior);			
+			readJSON();
+			readXmlFileOk();
+
+			addhelpInfo();
+			$('#canvas').fadeIn(1000);
+			$('.navbar-icon').click(function () { 
+				$('.navbar-icon').children().removeClass('swing');
+				$('.navbar-icon').children().addClass('swing');		 		
+		 		setTimeout(function(){$('.navbar-icon').children().removeClass('swing');}, 1000);
+			});	
+		 	var flipbook = $('.magazine');
+		 	// Check if the CSS was already loaded			
+			if (flipbook.width()==0 || flipbook.height()==0) {
+				setTimeout(loadApp, 10);
+				return;
+			}
+			// Create the flipbook
+
+			flipbook.turn({
+					
+					// Magazine width 			1000	1920
+
+					width: 1700,
+
+					// Magazine height 			650		1080
+
+					height: 1040,
+
+					// Duration in millisecond
+
+					duration: 1000,
+
+					// Hardware acceleration
+
+					acceleration: !isChrome(),
+
+					// Enables gradients
+
+					gradients: true,
+					
+					// Auto center this flipbook
+
+					autoCenter: true,
+
+					// Elevation from the edge of the flipbook when turning a page
+
+					elevation: 50,
+
+					// The number of pages
+
+					pages: numero_paginas, 
+					// Events
+
+					when: {
+						turning: function(event, page, view) {							
+							var book = $(this),
+							currentPage = book.turn('page'),
+							pages = book.turn('pages');					
+							// Update the current URI
+							Hash.go('page/' + page).update();							
+							// Show and hide navigation buttons
+							//console.log("currentPage:: "+currentPage + " page:: " + page);
+							disableControls(page);
+							raiseTurnedEvent(currentPage, page);		
+
+							$('.thumbnails .page-'+currentPage).
+								parent().
+								removeClass('current');
+
+							$('.thumbnails .page-'+page).
+								parent().
+								addClass('current');
+							if(Number(page)!=1){
+								if(Number(page) % 2)
+								{
+									document.getElementById('pages-info').innerHTML = "" + (Number(page)-1) + " - " + page;
+									document.getElementById('page-id').placeholder = "" + (Number(page)-1) + " - " + page;
+								}
+								else 
+								{ 
+									document.getElementById('pages-info').innerHTML = "" + page + " - " + (Number(page)+1);	
+									document.getElementById('page-id').placeholder = "" + page + " - " + (Number(page)+1);	
+								}											
+							}
+							else
+							{
+								document.getElementById('pages-info').innerHTML = page;
+								document.getElementById('page-id').placeholder = page;
+							}
+							playsound();
+							mStop()
+						},
+
+						turned: function(event, page, view) {
+
+							disableControls(page);
+							showMediaI(page);
+
+							$(this).turn('center');
+
+							if (page==1) { 
+								$(this).turn('peel', 'br');
+							}	
+						},
+						
+						missing: function (event, pages) {							
+							// Add pages that aren't in the magazine
+							book = $(this);
+							for (var i = 0; i < pages.length; i++)
+								addPage(pages[i], $(this));
+
+						}
+					}
+
+			});
+
+
+			// Zoom.js
+
+				$('.magazine-viewport').zoom({
+					flipbook: $('.magazine'),
+
+					max: function() { 
+						
+						return largeMagazineWidth()/$('.magazine').width();
+
+					}, 
+
+					when: {
+
+						swipeLeft: function() {
+
+							$(this).zoom('flipbook').turn('next');
+
+						},
+
+						swipeRight: function() {
+							
+							$(this).zoom('flipbook').turn('previous');
+
+						},
+
+						resize: function(event, scale, page, pageElement) {
+
+							if (scale==1)
+								loadSmallPage(page, pageElement);
+							else
+								loadLargePage(page, pageElement);
+
+						},
+
+						zoomIn: function () {
+
+							$('.thumbnails').hide();
+							$('.made').hide();
+							$('.magazine').removeClass('animated').addClass('zoom-in');
+							$('.zoom-icon').removeClass('zoom-icon-in').addClass('zoom-icon-out');
+							hideAndStopMedia();
+							
+							if (!window.escTip && !$.isTouch) {
+								escTip = true;
+
+								$('<div />', {'class': 'exit-message'}).
+									html('<div>ESC para salir</div>').
+										appendTo($('body')).
+										delay(2000).css({zIndex:100, top:40}).
+										animate({opacity:0}, 500, function() {
+											$(this).remove();
+										});
+							}
+							zoom_media_out();
+						},
+
+						zoomOut: function () {
+
+							$('.exit-message').hide();
+							$('.thumbnails').fadeIn();
+							$('.made').fadeIn();
+							$('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
+							showMediaI($('.magazine').turn('page'));
+							setTimeout(function(){
+								$('.magazine').addClass('animated').removeClass('zoom-in');
+								resizeViewport();
+							}, 0);
+							zoom_media_in();
+						}
+					}
+				});
+
+				// Zoom event
+
+				if ($.isTouch)
+					$('.magazine-viewport').bind('zoom.doubleTap', zoomTo);
+				else
+					$('.magazine-viewport').bind('zoom.tap', zoomTo);
+
+				// Using arrow keys to turn the page
+
+				$(document).keydown(function(e){
+
+					var previous = 37, next = 39, esc = 27;
+
+					switch (e.keyCode) {
+						case previous:
+
+							// left arrow
+							$('.magazine').turn('previous');
+							e.preventDefault();
+
+						break;
+						case next:
+
+							//right arrow
+							$('.magazine').turn('next');
+							e.preventDefault();
+
+						break;
+						case esc:
+							
+							$('.magazine-viewport').zoom('zoomOut');	
+							e.preventDefault();
+
+						break;
+					}
+				});
+
+				// URIs - Format #/page/1 
+
+				Hash.on('^page\/([0-9]*)$', {
+					yep: function(path, parts) {
+						var page = parts[1];
+
+						if (page!==undefined) {
+							if ($('.magazine').turn('is'))
+								$('.magazine').turn('page', page);
+						}
+
+					},
+					nop: function(path) {
+
+						if ($('.magazine').turn('is'))
+							$('.magazine').turn('page', 1);
+					}
+				});
+
+
+				$(window).resize(function() {
+					resizeViewport();
+				}).bind('orientationchange', function() {
+					resizeViewport();
+				});
+
+				// Events for thumbnails
+
+				$('.thumbnails').click(function(event) {
+					
+					var page;
+
+					if (event.target && (page=/page-([0-9]+)/.exec($(event.target).attr('class'))) ) {
+					
+						$('.magazine').turn('page', page[1]);
+					}
+				});
+
+				$('.thumbnails li').
+					bind($.mouseEvents.over, function() {
+						
+						$(this).addClass('thumb-hover');
+
+					}).bind($.mouseEvents.out, function() {
+						
+						$(this).removeClass('thumb-hover');
+
+					});
+
+				if ($.isTouch) {
+				
+					$('.thumbnails').
+						addClass('thumbanils-touch').
+						bind($.mouseEvents.move, function(event) {
+							event.preventDefault();
+						});
+
+				} else {
+
+					$('.thumbnails ul').mouseover(function() {
+
+						$('.thumbnails').addClass('thumbnails-hover');
+
+					}).mousedown(function() {
+
+						return false;
+
+					}).mouseout(function() {
+
+						$('.thumbnails').removeClass('thumbnails-hover');
+
+					});
+
+				}
+
+
+				// Regions
+				if ($.isTouch) {
+					$('.magazine').bind('touchstart', regionClick);
+				} else {
+					$('.magazine').click(regionClick);
+				}
+
+				// Events for the next button
+
+				$('.next-button').bind($.mouseEvents.over, function() {
+					
+					$(this).addClass('next-button-hover');
+
+				}).bind($.mouseEvents.out, function() {
+					
+					$(this).removeClass('next-button-hover');
+
+				}).bind($.mouseEvents.down, function() {
+					
+					$(this).addClass('next-button-down');
+
+				}).bind($.mouseEvents.up, function() {
+					
+					$(this).removeClass('next-button-down');
+
+				}).click(function() {
+					
+					$('.magazine').turn('next');
+
+				});
+
+				// Events for the next button
+				
+				$('.previous-button').bind($.mouseEvents.over, function() {
+					
+					$(this).addClass('previous-button-hover');
+
+				}).bind($.mouseEvents.out, function() {
+					
+					$(this).removeClass('previous-button-hover');
+
+				}).bind($.mouseEvents.down, function() {
+					
+					$(this).addClass('previous-button-down');
+
+				}).bind($.mouseEvents.up, function() {
+					
+					$(this).removeClass('previous-button-down');
+
+				}).click(function() {
+					
+					$('.magazine').turn('previous');
+
+				});
+
+				resizeViewport();
+
+				$('.magazine').addClass('animated');
+
+			}
+			else
+			{
+				$('<div />', {'class': 'exit-message'}).
+				html('<div>Tu app caducó</div>').
+					appendTo($('body')).
+					delay(2000).css({zIndex:100, top:40});
+			}
+		}
+
+		/*Action bar code*/
+		document.getElementById("ir").onclick = function () { 
+			$('.magazine').turn('page', Number(document.getElementById('page-id').value));			
+			document.getElementById('page-id').value ="";
+		};
+
+		document.getElementById("home").onclick = function () { 
+			$('.magazine').turn('page', 1);
+		};
+
+		document.getElementById("back").onclick = function () { 
+			$('.magazine').turn('previous');
+		};
+
+		document.getElementById("forward").onclick = function () { 
+			$('.magazine').turn('next');
+		};
+
+		document.getElementById("go-pagemark").onclick = function () { 
+			goPageBookSeprator();
+		};
+
+		document.getElementById("tag").onclick = function () {	
+			addBookSeparator(book);
+		};
+
+
+		document.getElementById("h-pencil").onclick = function () {	
+			if ($('#h-pencil').hasClass('color-green')) $('#h-pencil').removeClass('color-green');
+		 	else $('#h-pencil').addClass('color-green');
+		 	if ($('#h-submenu-1').hasClass('collapse')) $('#h-submenu-1').removeClass('collapse');
+		 	else $('#h-submenu-1').addClass('collapse');
+			document.getElementById("pencil").click();
+		};
+
+		document.getElementById("pencil").onclick = function () {	
+			if ($('#pencil').hasClass('color-green')) 
+				$('#pencil').removeClass('color-green');
+			else 
+				$('#pencil').addClass('color-green');
+
+			if ($('#pencil > svg-icon').hasClass('glyph-icon'))
+			{ 
+				$('#pencil > svg-icon').addClass('glyph-icon-acent');
+				$('#pencil > svg-icon').removeClass('glyph-icon');
+			}
+			else
+			{
+				$('#pencil > svg-icon').addClass('glyph-icon');
+				$('#pencil > svg-icon').removeClass('glyph-icon-acent');
+			}
+			
+			if ($('#submenu-1').hasClass('collapse')) 
+				$('#submenu-1').removeClass('collapse');
+			else 
+			 	$('#submenu-1').addClass('collapse');
+		 	document.getElementById("pencil-1").click();
+			if(pencil)
+			{
+				pencil = false;
+				 $('#the-canvas').hide();
+			}
+			else
+			{
+				mark = eraser = !(pencil = true);
+				$('#the-canvas').show();
+				document.getElementById('color-lapiz').jscolor.fromString('000000');
+				document.getElementById('h-color-lapiz').jscolor.fromString('000000');
+				color_pencil = '0,0,0';
+				if ($('#eraser').hasClass('color-green')) $('#eraser').removeClass('color-green');
+				if ($('#pencil-mark').hasClass('color-green')) $('#pencil-mark').removeClass('color-green');
+
+				if (!$('#pencil-mark > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#pencil-mark > svg-icon').addClass('glyph-icon');
+					$('#pencil-mark > svg-icon').removeClass('glyph-icon-acent');
+				}
+
+				if (!$('#eraser > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#eraser > svg-icon').addClass('glyph-icon');
+					$('#eraser > svg-icon').removeClass('glyph-icon-acent');
+				}
+
+				if (!$('#submenu-2').hasClass('collapse')) $('#submenu-2').addClass('collapse');
+			}
+		};
+
+		document.getElementById("h-pencil-1").onclick = function () {	
+			document.getElementById("pencil-1").click();
+		};
+
+		document.getElementById("pencil-1").onclick = function () {	
+			pencil_size = 1;
+			if (!$('#pencil-1').hasClass('color-black')) $('#pencil-1').addClass('color-black');
+		 	if ($('#pencil-2').hasClass('color-black')) $('#pencil-2').removeClass('color-black');
+			if ($('#pencil-3').hasClass('color-black')) $('#pencil-3').removeClass('color-black');
+		};
+
+		document.getElementById("h-pencil-2").onclick = function () {	
+			document.getElementById("pencil-2").click();
+		};
+
+		document.getElementById("pencil-2").onclick = function () {	
+			pencil_size = 2;
+			if (!$('#pencil-2').hasClass('color-black')) $('#pencil-2').addClass('color-black');
+		 	if ($('#pencil-1').hasClass('color-black')) $('#pencil-1').removeClass('color-black');
+		 	if ($('#pencil-3').hasClass('color-black')) $('#pencil-3').removeClass('color-black');
+		};
+
+		document.getElementById("h-pencil-3").onclick = function () {
+			document.getElementById("pencil-3").click();
+		};
+
+		document.getElementById("pencil-3").onclick = function () {	
+			pencil_size = 3;
+			if (!$('#pencil-3').hasClass('color-black')) $('#pencil-3').addClass('color-black');
+		 	if ($('#pencil-2').hasClass('color-black')) $('#pencil-2').removeClass('color-black');
+		 	if ($('#pencil-1').hasClass('color-black')) $('#pencil-1').removeClass('color-black');
+		};
+
+		document.getElementById("h-eraser").onclick = function () {
+			document.getElementById("eraser").click();
+		};
+
+		document.getElementById("eraser").onclick = function () {
+			if ($('#eraser').hasClass('color-green')) $('#eraser').removeClass('color-green');
+			else $('#eraser').addClass('color-green');
+
+			if ($('#eraser > svg-icon').hasClass('glyph-icon'))
+			{ 
+				$('#eraser > svg-icon').addClass('glyph-icon-acent');
+				$('#eraser > svg-icon').removeClass('glyph-icon');
+			}
+			else
+			{
+				$('#eraser > svg-icon').addClass('glyph-icon');
+				$('#eraser > svg-icon').removeClass('glyph-icon-acent');
+			}
+
+		 	if (!$('#submenu-1').hasClass('collapse'))  $('#submenu-1').addClass('collapse');	
+		 	if (!$('#submenu-2').hasClass('collapse'))  $('#submenu-2').addClass('collapse');
+			if(eraser)
+			{
+				eraser = false;
+				$('#the-canvas').hide();
+			}
+			else
+			{
+				mark = pencil= !(eraser = true);
+				$('#the-canvas').show();
+				if ($('#pencil').hasClass('color-green')) $('#pencil').removeClass('color-green');
+				if ($('#pencil-mark').hasClass('color-green')) $('#pencil-mark').removeClass('color-green');
+
+				if (!$('#pencil > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#pencil > svg-icon').addClass('glyph-icon');
+					$('#pencil > svg-icon').removeClass('glyph-icon-acent');
+				}
+
+				if (!$('#pencil-mark > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#pencil-mark > svg-icon').addClass('glyph-icon');
+					$('#pencil-mark > svg-icon').removeClass('glyph-icon-acent');
+				}
+			}
+		};
+
+		document.getElementById("pencil-mark").onclick = function () {	
+			if ($('#pencil-mark').hasClass('color-green'))
+				$('#pencil-mark').removeClass('color-green');
+			else 
+				$('#pencil-mark').addClass('color-green');
+
+			if ($('#pencil-mark > svg-icon').hasClass('glyph-icon'))
+			{ 
+				$('#pencil-mark > svg-icon').addClass('glyph-icon-acent');
+				$('#pencil-mark > svg-icon').removeClass('glyph-icon');
+			}
+			else
+			{
+				$('#pencil-mark > svg-icon').addClass('glyph-icon');
+				$('#pencil-mark > svg-icon').removeClass('glyph-icon-acent');
+			}
+
+			if ($('#submenu-2').hasClass('collapse')) 
+			 	$('#submenu-2').removeClass('collapse');
+			else 
+			 $('#submenu-2').addClass('collapse');
+
+			 document.getElementById("pencil-mark-1").click();
+			 
+			if(mark)
+			{
+				mark = false;
+				 $('#the-canvas').hide();
+			}
+			else
+			{
+				pencil = eraser = !(mark = true);
+				document.getElementById('color-lapiz').jscolor.fromString('fffe4c');
+				document.getElementById('h-color-lapiz').jscolor.fromString('fffe4c');
+				color_pencil = '255, 254, 76';
+				$('#the-canvas').show();
+				if ($('#eraser').hasClass('color-green')) $('#eraser').removeClass('color-green');
+				if ($('#pencil').hasClass('color-green')) $('#pencil').removeClass('color-green');
+
+				if (!$('#pencil > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#pencil > svg-icon').addClass('glyph-icon');
+					$('#pencil > svg-icon').removeClass('glyph-icon-acent');
+				}
+
+				if (!$('#eraser > svg-icon').hasClass('glyph-icon'))
+				{
+					$('#eraser > svg-icon').addClass('glyph-icon');
+					$('#eraser > svg-icon').removeClass('glyph-icon-acent');
+				}
+
+				if (!$('#submenu-1').hasClass('collapse')) $('#submenu-1').addClass('collapse');
+			}
+		};
+
+		document.getElementById("pencil-mark-1").onclick = function () {	
+			mark_size = 1;
+			if (!$('#pencil-mark-1').hasClass('color-black')) $('#pencil-mark-1').addClass('color-black');
+		 	if ($('#pencil-mark-2').hasClass('color-black')) $('#pencil-mark-2').removeClass('color-black');
+		 	if ($('#pencil-mark-3').hasClass('color-black')) $('#pencil-mark-3').removeClass('color-black');
+		};
+
+		document.getElementById("pencil-mark-2").onclick = function () {	
+			mark_size = 2;
+			if (!$('#pencil-mark-2').hasClass('color-black')) $('#pencil-mark-2').addClass('color-black');
+		 	if ($('#pencil-mark-1').hasClass('color-black')) $('#pencil-mark-1').removeClass('color-black');
+		 	if ($('#pencil-mark-3').hasClass('color-black')) $('#pencil-mark-3').removeClass('color-black');
+		};
+
+		document.getElementById("pencil-mark-3").onclick = function () {	
+			mark_size = 3;
+			if (!$('#pencil-mark-3').hasClass('color-black')) $('#pencil-mark-3').addClass('color-black');
+		 	if ($('#pencil-mark-2').hasClass('color-black')) $('#pencil-mark-2').removeClass('color-black');
+		 	if ($('#pencil-mark-1').hasClass('color-black')) $('#pencil-mark-1').removeClass('color-black');
+		};
+
+		document.getElementById("h-clear").onclick = function () {	
+			document.getElementById("clear").click();
+		};
+
+		document.getElementById("clear").onclick = function () {	
+		    refreshCanvas(parseInt($("#magazine-viewport").css('width')), parseInt($("#magazine-viewport").css('height')));
+		};		
+
+		document.getElementById("h-screenshot").onclick = function () {	
+			document.getElementById("screenshot").click();
+		};
+
+		document.getElementById("screenshot").onclick = function () {	
+			
+			//if(pencil || mark){			
+
+				var gui = require('nw.gui');
+
+				var win = gui.Window.get();
+				
+				var utc = dateFormat(new Date(), 'm-d-Y_h-i-s');
+				
+				var nameFile = "screenshot_" + utc;
+				
+			    win.capturePage(function(buffer)
+					{
+						
+						var dialog = require('nw-dialog');
+
+						dialog.setContext(document);
+
+						dialog.saveFileDialog(nameFile+'.png', function(result) {
+
+								require('fs').writeFile(result, buffer, function (err) {
+
+									if (err) throw err;
+									
+								});
+						});	
+
+					}, 
+					{ 
+						format : 'png', 
+						datatype : 'buffer'
+					} 					
+				);
+				Messsage('Captura realizada');
+			//} else Messsage('Disponible solo con un lápiz activo');
+					
+		}
+
+		function Messsage(msg){
+			$('<div />', {'class': 'exit-message'}).
+				html('<div>' + msg + '</div>').
+				appendTo($('body')).
+				delay(2000).
+				animate({opacity:0}, 500, function() {
+					
+					$(this).remove();
+				});
+		}
+
+		document.getElementById("h-notes").onclick = function () {
+			document.getElementById("notes").click();
+		};
+
+		document.getElementById("notes").onclick = function () {
+			$('#div-note').show();
+			document.getElementById("note-text").value = '';
+			Nota("50px", "100px", 0);
+			addNote = true;
+		};			
+
+		function raiseTurnedEvent(actualPage, nextPage){	
+			initCanvas();
+			document.getElementById("clear").click();		
+			hideAndStopMedia();	
+           	//Show media icon from this page
+           	//--showMediaI(nextPage);           		
+			// Eliminar posiciones de los iconos en Json
+			elimiarJSON();
+			// Guardar posiciones de los iconos en Json
+			writeJSON(JSON.stringify(ActCoords.Coords));
+
+			/**
+			 * 
+			 * Codigo para las notas
+			 * 
+			 * **/
+			//Guardar nota actual si se agrego o  modifico	
+			if(addNote || document.getElementById(("div-note")).style.display == 'block'){		
+				if(document.getElementById("note-text").value != null && document.getElementById("note-text").value!=''){	
+					
+					var div_element = document.getElementById(("div-note"));
+					var txt_element = document.getElementById("note-text");
+					if(!(Number(actualPage) % 2)) crearArchivoJSON(Number(actualPage), txt_element.value, div_element.style.top, div_element.style.left);
+					else crearArchivoJSON(Number(actualPage) - 1, txt_element.value, div_element.style.top, div_element.style.left);					
+					addNote = false;
+				}
+			}
+			$('#div-note').hide();
+
+			//Cargar nota de la siguiente pagina
+			var pageNote = '';
+
+			if(Number(nextPage) % 2) pageNote = nextPage - 1;
+
+			else pageNote = nextPage;
+			
+			if(require('fs').existsSync(pathImg + 'resources/notes/note('+pageNote+').nt')){
+
+				$.getJSON(pathImg + 'resources/notes/note('+pageNote+').nt').done(function(data) {		
+					var note_data = data;
+					$('#div-note').show();
+					Nota(note_data.top, note_data.left, pageNote);
+					var txt_element = document.getElementById("note-text");
+					txt_element.value = note_data.txt;
+				}).fail(function( jqxhr, textStatus, error ) {
+					var note_data = JSON.parse(jqxhr.responseText);
+					$('#div-note').show();
+					Nota(note_data.top, note_data.left, pageNote);
+					var txt_element = document.getElementById("note-text");
+					txt_element.value = note_data.txt;
+				});
+			}
+		}
+
+		function hideAndStopMedia(){
+			//Stop audio if playing
+			$('.div-video').hide();
+			$('.div-audio').hide();
+			$('.div-juego').hide();
+			$('.div-pdf').hide();
+			$('.div-examen').hide();
+			$('#player-audio').hide();
+			$("#player-audio").trigger('pause');
+           	$("#player-audio").prop("currentTime",0);
+           	//Stop video if playing
+           	$('#div-video-player').hide();
+			$("#player-video").trigger('pause');
+           	$("#player-video").prop("currentTime",0);
+		}
+
+		function showMediaI(nextPage){
+			var Actividades = getMediaPage(Number(nextPage));
+			for(var a in Actividades){
+	           	$('#div-video-' + Actividades[a].Id + '-' + nextPage).show();
+				$('#div-audio-' + Actividades[a].Id + '-' + nextPage).show();
+				$('#div-juego-' + Actividades[a].Id + '-' + nextPage).show();
+				$('#div-pdf-' + Actividades[a].Id + '-' + nextPage).show();
+				$('#div-examen-' + Actividades[a].Id + '-' + nextPage).show();
+			}  
+			if(Number(nextPage) % 2) {
+				var Actividades2 = getMediaPage(Number(nextPage)-1);
+				for(var a in Actividades2){
+					$('#div-video-' + Actividades2[a].Id + '-' + (Number(nextPage)-1)).show();
+					$('#div-audio-' + Actividades2[a].Id + '-' + (Number(nextPage)-1)).show();
+					$('#div-juego-' + Actividades2[a].Id + '-' + (Number(nextPage)-1)).show();
+					$('#div-pdf-' + Actividades2[a].Id + '-' + (Number(nextPage)-1)).show();
+					$('#div-examen-' + Actividades2[a].Id + '-' + (Number(nextPage)-1)).show();
+				}           		
+           	} else {   
+				var Actividades2 = getMediaPage(Number(nextPage)+1);
+				for(var a in Actividades2){
+					$('#div-video-' + Actividades2[a].Id + '-' + (Number(nextPage)+1)).show();
+					$('#div-audio-' + Actividades2[a].Id + '-' + (Number(nextPage)+1)).show();
+					$('#div-juego-' + Actividades2[a].Id + '-' + (Number(nextPage)+1)).show();
+					$('#div-pdf-' + Actividades2[a].Id + '-' + (Number(nextPage)+1)).show();
+					$('#div-examen-' + Actividades2[a].Id + '-' + (Number(nextPage)+1)).show();
+				}   
+			}		
+		}
+
+		function setTextColor(picker) {
+			color_pencil = Math.round(picker.rgb[0]) + ', ' + Math.round(picker.rgb[1]) + ', ' + Math.round(picker.rgb[2]);
+		}
+		var hide_color = true;
+
+		document.getElementById("h-color-lapiz").onclick = function () {
+			document.getElementById("color-lapiz").click();
+		}
+
+		document.getElementById("color-lapiz").onclick = function () {
+			if(!hide_color){document.getElementById('color-lapiz').jscolor.hide(); hide_color = true;}
+			else hide_color = false;
+		}
+
+		document.getElementById("close-note").onclick = function () {
+			$('#div-note').hide();
+		}
+
+		document.getElementById("close-window").onclick = function () {
+			nwin.close(); 
+		}
+
+		document.getElementById("minimize-window").onclick = function () {
+			nwin.minimize();
+		}
+
+		document.getElementById("maximize-window").onclick = function () {
+			if(max_min){				
+			    nwin.enterFullscreen();
+				max_min = false;
+				if ($('#maximize-window-span').hasClass('glyphicon-resize-full')) $('#maximize-window-span').removeClass('glyphicon-resize-full');
+				if (!$('#maximize-window-span').hasClass('glyphicon-resize-small')) $('#maximize-window-span').addClass('glyphicon-resize-small');
+				//console.log($(window).width());
+				//console.log($(window).height());
+			}else{
+				nwin.leaveFullscreen();
+				if ($('#maximize-window-span').hasClass('glyphicon-resize-small')) $('#maximize-window-span').removeClass('glyphicon-resize-small');
+				if (!$('#maximize-window-span').hasClass('glyphicon-resize-full')) $('#maximize-window-span').addClass('glyphicon-resize-full');
+				max_min = true;
+			}
+			
+		}		
+
+		function getUserHome() {
+		    return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+		}
+
+		// Zoom icon
+
+		 $('.zoom-icon').bind('mouseover', function() { 
+		 	
+		 	if ($(this).hasClass('zoom-icon-in'))
+		 		$(this).addClass('zoom-icon-in-hover');
+
+		 	if ($(this).hasClass('zoom-icon-out'))
+		 		$(this).addClass('zoom-icon-out-hover');
+		 
+		 }).bind('mouseout', function() { 
+		 	
+		 	 if ($(this).hasClass('zoom-icon-in'))
+		 		$(this).removeClass('zoom-icon-in-hover');
+		 	
+		 	if ($(this).hasClass('zoom-icon-out'))
+		 		$(this).removeClass('zoom-icon-out-hover');
+
+		 }).bind('click', function() {
+
+		 	if ($(this).hasClass('zoom-icon-in'))
+		 		$('.magazine-viewport').zoom('zoomIn');
+		 	else if ($(this).hasClass('zoom-icon-out'))	
+				$('.magazine-viewport').zoom('zoomOut');
+
+		 });
+
+		 document.getElementById("h-zoom-media").onclick = function () {
+		 	document.getElementById("zoom-media").click();
+		 };
+
+		 $('#zoom-media').bind('click', function() { 
+		 	if ($(this).children().hasClass('glyphicon-zoom-in')){
+		 		$('.magazine-viewport').zoom('zoomIn'); 
+		 		$(this).children().removeClass('glyphicon-zoom-in');
+				$(this).children().addClass('glyphicon-zoom-out');					 
+				$(this).html("<svg-icon class='glyph-icon glyphicon-zoom-in'><src href='css/sprite/sprite.svg#si-glyph-zoom-out' /></svg-icon>");
+		 	}
+		 	else if ($(this).children().hasClass('glyphicon-zoom-out')){	
+		 		$('.magazine-viewport').zoom('zoomOut');
+				$(this).children().removeClass('glyphicon-zoom-out');
+				$(this).children().addClass('glyphicon-zoom-in');	
+				$(this).html("<svg-icon class='glyph-icon glyphicon-zoom-in'><src href='css/sprite/sprite.svg#si-glyph-zoom-in' /></svg-icon>");			
+			}
+		 });
+
+		$('#print').bind('click', function() { 
+			$('#print-dialog').show();
+			if ($('#print-dialog').hasClass('fade')) $('#print-dialog').removeClass('fade');
+
+			/*var page = $('.magazine').turn('page');
+			var pge1=0, pge2=0;
+			if(Number(page) % 2) {
+				pge1 = (Number(page)-1);
+				pge2 = page;
+			}
+			else {
+				pge1 = page;
+				pge2 = (Number(page)+1);
+			}
+		 	printDocument(pge1, pge2);*/
+		 });
+
+		 function zoom_media_out(){
+		 	if ($('.zoom-media').children().hasClass('glyphicon-zoom-in')){
+		 		$('.zoom-media').children().removeClass('glyphicon-zoom-in');
+		 		$('.zoom-media').children().addClass('glyphicon-zoom-out');		 		
+		 	}
+		 }
+		 function zoom_media_in(){
+		 	if ($('.zoom-media').children().hasClass('glyphicon-zoom-out')){	
+				$('.zoom-media').children().removeClass('glyphicon-zoom-out');
+				$('.zoom-media').children().addClass('glyphicon-zoom-in');				
+			}
+		 }
+
+		 $('#canvas').hide();	
+		 $('#the-canvas').hide();	 
+		 $('#div-note').hide();
+		
+
+		// Load the HTML4 version if there's not CSS transform
+		yepnope({
+			test : Modernizr.csstransforms,
+			yep: ['js/lib/turn.js'],
+			nope: ['js/lib/turn.html4.min.js'],
+			both: ['js/lib/zoom.min.js', 'js/magazine.js', 'css/magazine.css'],
+			complete: loadApp
+		});	 
+
+		//refreshCanvas(parseInt($("#magazine-viewport").css('width')), parseInt($("#magazine-viewport").css('height')));
+
+		//Seccion de reproductor multimedia
+
+		window.onload = function (){
+			
+		}
+
+		$( document ).ready(function() {
+			//readJSON();readXmlFileOk();	
+		});
+
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+
+
+		</script>
+
+		<script>
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+
+				$('.middle-input').keypress(function(event){
+					var keycode = (event.keyCode ? event.keyCode : event.which);
+					if(keycode == '13'){
+						$('#ir').click();
+					}
+				});
+				
+			})
+		</script>
+	    <!--<script type="text/javascript" src="build/pdf.worker.js"></script>
+		<script type="text/javascript" src="build/pdf.js"></script>
+	    <script type="text/javascript" src="js/biblioteca.js"></script>	    
+	    <script type="text/javascript" src="js/pivot.js"></script>-->
+	</body>
+</html>

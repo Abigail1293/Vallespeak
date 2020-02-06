@@ -1,0 +1,23 @@
+.icons-info{
+    background: url(../img/instrucciones.png) no-repeat top left;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    text-indent: -9999px;
+}
+
+.icons-bad{
+    background: url(../img/incorrecto.png) no-repeat top left;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    text-indent: -9999px;
+}
+
+.icons-good{
+    background: url(../img/correcto.png) no-repeat top left;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    text-indent: -9999px;
+}

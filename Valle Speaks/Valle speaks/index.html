@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Biblioteca virtual</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/estiloBiblioteca.css">
+	<link rel="stylesheet" href="css/responsiveBiblioteca.css">
+</head>
+<body>
+
+<!--<img  style="cursor: pointer;  position: absolute; left:-2px;z-index: 5; width: 155px;"src="images/demo.png">-->
+
+<div class="container-fluid">
+	<div class="row barraEstado" >
+		<div class="row">
+
+			<div class="col-lg-1 col-md-1  col-sm-1 col-xs-1 " >
+				<span onclick="returnMenu()">
+					<img src="images/casa.png" class="btnatras" data-toggle='tooltip' data-placement='bottom' title="menu principal">
+				</span>
+			</div>
+
+			<div class="col-lg-2 col-md-3  col-sm-4 col-xs-4" style="-webkit-app-region: drag"> </div>
+
+			<div class="col-lg-3 col-md-3  col-sm-4 col-xs-2 " >
+				<h2 class="tituloBibliotecaVirtual" style="margin-top: 1em"> <strong style="  font-weight: bold;">  Valle	</strong>   Speaks</h2>
+			</div>
+			<div class="col-lg-4 col-md-3  col-sm-3 hidden-xs "></div>	
+			<div class="col-lg-1 col-md-1  col-sm-1 col-xs-2 " style="  text-align: right;">
+				<span class="glyphicon glyphicon-minus btnWindow btnMinimizar" onclick="minimizar()" data-toggle="tooltip" data-placement="bottom" title="minimizar"></span>
+			</div>
+			<div class="col-lg-1 col-md-1  col-sm-1 col-xs-2" >
+				<span class="glyphicon glyphicon-remove btnWindow btnCerrar" onclick="cerrar()" data-toggle="tooltip" data-placement="bottom" title="cerrar"></span>
+			</div>	
+		</div>
+	</div>
+
+</div>
+
+<br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 ">
+			<p class="contLibros">							
+			</p>
+		</div>	
+
+
+	</div>
+
+
+	<!-- footer -->
+	<div class="navbar navbar-fixed-bottom footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<div class="container-fluid">
+						<div class="row">
+							<img src="images/plandi.png" class="footPlandi">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<input type="text" id="txtBusqueda" class="form-control textBuscar" placeholder="Search your book">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<button type="button" onClick="showLibro()" class="btn btn-primary btn-lg btnAbrir">Open</button>
+				</div>
+			</div>		
+		</div>
+	</div>	
+
+	</div>
+
+</div>
+
+		
+	
+
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap.js"></script>
+
+	<script type="text/javascript" src='js/jquery.transit.min.js'></script>
+	<script type="text/javascript" src="js/biblioteca.js"></script>
+	<script type="text/javascript" src="js/filesRead.js"></script>
+	<!--<script type="text/javascript" src="js/n_fileRead.js"></script>-->
+</body>
+</html>

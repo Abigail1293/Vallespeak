@@ -1,0 +1,113 @@
+    @font-face {
+      font-family: "BibliotecaPlandi";
+      src: url("fonts/Palanquin-Regular.ttf");
+    }
+
+    @font-face {
+      font-family: "BibliotecaPlandiBold";
+      src: url("/css/fonts/Palanquin-Bold.ttf");
+    }
+  
+
+body{
+	background-color: #ECECEC;
+	font-family: BibliotecaPlandi, serif;
+	color: #a1a1a1;
+	overflow: hidden;
+}
+
+
+	.tituloBibliotecaVirtual{
+	  margin-left: 1em;
+	  /* margin-top: 1em; */
+	  padding-bottom: 0.5em;
+	}
+
+
+#nombreLibro{
+  text-align: center;
+  margin-left: 0em;
+}
+
+
+
+
+.selectAC{
+	border-bottom: solid gray; 
+}
+
+.footer{
+	border-top:  solid white;
+	background-color: #d8d8d8;
+}
+
+.textBuscar{
+	  margin-top: 0.7em;
+}
+
+.areasConnocimiento{
+	  border-bottom:  solid white;
+	  background-color: #D8D8D8;
+	  z-index: 1;
+}
+
+
+
+
+
+#contMaterias2{
+	  margin-top: 1em;
+}
+
+	.contLibros{
+	  float: left;
+	  width: 100%;
+	  /* border: solid 1px; */
+	  height: 39em;
+	  overflow: scroll;
+	  overflow-x: hidden;
+	}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px ; 
+    background-color: #a1a1a1;
+}
+
+
+
+
+
+.iconoAnglo{
+  width: 6em;
+  margin-top: -0.4em;
+}
+
+.iconoPlandi{
+  width: 10em;
+  margin-top: -0.1em;	
+}
+
+.txtBuscar{
+  width: 70%;
+  margin-left: 10%;	
+}
+
+.descripcion{
+	  padding: 1em;
+}
+
+.btnWindow{
+	    font-size: 2em;
+  margin-top: 1em;
+}

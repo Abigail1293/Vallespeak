@@ -1,0 +1,31 @@
+{
+  "main": "pivotPDF.html",
+  "name": "bibliotecaDesktop",
+  "description": "Plataforma Lite",
+  "keywords": [
+    "demo",
+    "html",
+    "js",
+    "css"
+  ],
+  "window": {
+    "title": "Biblioteca Virtual",
+    "toolbar": false,
+    "width": 1300,
+    "height": 878,
+    "position": "center",
+    "transparent": false,
+    "frame": false,
+    "icon": "icono.png"
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "aes-js": "^3.1.0",
+    "node-hid": "^0.7.2",
+    "nw-dialog": "^1.0.7",
+    "print-js": "^1.0.32",
+    "usb": "^1.3.1"
+  }
+}

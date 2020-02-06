@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#003948">
+    <title>Relacionar</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/icons.css">
+    <link rel="stylesheet" href="./css/scrollbar.css">
+    <link rel="stylesheet" href="./css/core/wordfind-style.css">
+    <link rel="stylesheet" href="./css/circle.css">
+</head>
+<body id="body-content" style="overflow-x:hidden;">
+
+    <div id="view-engine-game">
+
+        <header></header> 
+
+        <main role="main" class="container-fluid slide">
+            <div class="mt-6">
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" 
+                    style="padding-left: 5rem; padding-right: 5rem;">
+                        <div class="progress mx-5">
+                            <div id="progressbar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!--
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1 class="display-4 text-uppercase font-weight-bold text-center">Sopa de Letras</h1>
+                    </div>
+                    -->
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <p id="pregunta" class="h5 text-uppercase text-center">¿Pos una pinchi pregunta va aquí?</p>
+                    </div>
+                </div>
+
+                
+                <div id="container-view" class="row">
+                    <div 
+                    class="col-sm-3 col-md-3 col-lg-3 col-xl-3" 
+                    style="padding-left: 5rem;">
+                        <div class="overscroll-2 card-body color-primary mr-1">
+                            <div id="puzzle-words">
+                                                                 
+                            </div>            
+                        </div>     
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6" >
+                        <div 
+                        id="puzzle-sprite"
+                        class="overscroll-1 border-bottom border-top border-left">   
+                            <div id="puzzle-container"></div>    
+                        </div>                 
+                    </div>
+
+                    <div 
+                    class="col-sm-3 col-md-3 col-lg-3 col-xl-3" 
+                    style="padding-right: 5rem;">
+                        <img src="./img/rana.png" alt="rana" class="img-fluid" style="padding-top: 40vh;">
+                    </div>
+                    
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="slide">
+            <nav id="bottom-navbar" class="navbar fixed-bottom navbar-light bg-faded color-accent px-5 py-4">
+                <div class="row">
+                    <a id="bottom-navbar-icon" class="icons-info"></a>
+                    <div class="col-ms-10 ml-2">
+                        <h5><p id="bottom-navbar-text" class="text-left font-italic">Encuentra la respuesta en la sopa de letras.</p></h5>
+                    </div>
+                </div>
+                <!--<button id="btnResolver" type="button" onclick="Solveit()" class="btn btn-primary ml-auto px-4"><h4><strong>Resolver</strong></h4></button>-->
+                <button id="btnEvaluar" type="button" onclick="truef()" class="btn btn-primary ml-auto px-4"><h4><strong>Evaluar</strong></h4></button>
+            </nav>    
+        </footer>
+
+    </div>
+
+    <div id="view-engine-record" style="display: none;">
+        <div role="main" class="container-fluid slide">
+            <div class="mt-6">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6" 
+                    style="padding-left: 5rem; padding-right: 5rem;">
+                        <div class="circle"></div>
+                        <div class="circle2">
+                            <center>
+                                <p class="h1 text-uppercase">Correctas</p>
+                                <h1 id="game-result" class="display-4 font-weight-bold">4/10</h1>
+                            </center> 
+                        </div>      
+                    </div>
+                    <div 
+                    class="col-sm-6 col-md-6 col-lg-6 col-xl-6" 
+                    style="padding-left: 5rem; padding-right: 5rem;">
+                        <center>
+                            <div style="margin-top: 30vh;">
+                                <p class="h4 font-weight-bold text-uppercase theme-gradient-1 py-2">Relacionar</p>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 border-right border-secondary" >
+                                        <p id="game-score" class="h1 theme-text-1 font-weight-bold">2010</p>
+                                        <p class="h4">Puntos</p>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6" >
+                                        <p id="game-time" class="h1 theme-text-1 font-weight-bold">00:07</p>
+                                        <p class="h4">Tiempo</p>
+                                    </div>    
+                                </div>                            
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>    
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/url/parser.js"></script>
+    <script src="./js/xml.js" type="text/javascript"></script>
+    <script src="./js/core/wordfind.js" type="text/javascript"></script>
+    <script src="./js/core/wordfindgame.js" type="text/javascript"></script>
+    <script src="./js/processor.js" type="text/javascript"></script>
+    <script src="./js/record-timer.js" type="text/javascript"></script>
+    <script>
+    
+    var gamePuzzle;
+
+    var wordsList; 
+
+    var progressed = 0;
+
+    function OnFindWord(id){
+        if(id == getWord()){
+
+            var ind = indexer;
+            
+            var interval = setInterval(function() {
+		
+                $("#progressbar")
+            
+                .css("width", progressed + "%")
+            
+                .attr("aria-valuenow", progressed)
+            
+                .text(progressed + "%");
+
+               
+            
+                if (progressed == ((ind * 100) / Preguntas.DOM.length)){
+
+                    progressed = ((ind * 100) / Preguntas.DOM.length)
+                    clearInterval(interval);				
+                }
+                else{
+                    progressed += 1;
+                }
+
+            }, 50);
+
+            getNext();
+            //PlayRanaMosca();
+
+            return true;
+        }
+        return false;
+    }
+    
+    function OnLoadPuzzle(words){
+        // Start a basic word game without customization !
+        gamePuzzle = wordfindgame.create(words, '#puzzle-container', '#puzzle-words', undefined, OnFindWord);
+        wordsList = words;
+    }  
+    
+    function Solveit(){
+        // Start a basic word game without customization !
+        var result = wordfindgame.solve(gamePuzzle, wordsList);
+        console.log(result);
+    }  
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+.glyph-icon svg, 
+.glyph-icon-w svg,
+.glyph-icon-acent svg {
+	width:25px;
+	height:25px;
+}
+
+/*Color general de los colores*/
+.glyph-icon svg g,
+.glyph-icon svg path{
+	fill: #000;
+}
+
+/*Color general de los colores*/
+.glyph-icon-acent svg g,
+.glyph-icon-acent svg path{
+	fill: #fff;
+}
+
+.glyph-icon-w svg g,
+.glyph-icon-w svg path{
+	fill: rgb(255, 255, 255);
+}
+
+/*Hover Blanco*/
+.glyph-icon-white:hover svg g,
+.glyph-icon-white:hover svg path{
+	fill: #fff;
+}
+
+/*Hover Rojo*/
+.glyph-icon-red:hover svg g,
+.glyph-icon-red:hover svg path{
+	fill: #D80027;
+}
+
+/*Hover Verde*/
+.glyph-icon-gren:hover svg g,
+.glyph-icon-gren:hover svg path{
+	fill: #5CAF30 ;
+}
+
+/*Hover Azul*/
+.glyph-icon-azul:hover svg g,
+.glyph-icon-azul:hover svg path{
+	fill: #006DF0;
+}
+
+/*Hover Amarillo*/
+.glyph-icon-yellow:hover svg g,
+.glyph-icon-yellow:hover svg path{
+	fill: #FFDA44;
+}			
+
+.glyph-icon-1 svg,
+.glyph-icon-1 svg g circle{
+	width:10px;
+	height:10px;
+	fill: #fff;
+}
+
+.glyph-icon-2 svg,
+.glyph-icon-2 svg g circle {
+	width:20px;
+	height:20px;
+	fill: #fff;
+}		
+
+.glyph-icon-0 svg,
+.glyph-icon-0 svg g circle {
+	width:25px;
+	height:25px;
+	fill: #fff;
+}	

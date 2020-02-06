@@ -1,0 +1,32 @@
+{
+  "main": "menu.html",
+  "name": "bibliotecaDesktop",
+  "description": "aplicacion llenado de xml",
+  "keywords": [
+    "demo",
+    "html",
+    "js",
+    "css"
+  ],
+  "window": {
+    "title": "Biblioteca Virtual",
+    "toolbar": true,
+    "width": 1150,
+    "height": 650,
+    "position": "center",
+    "transparent": false,
+    "frame": true,
+    "icon": "LITE.png"
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "async-each": "^1.0.1",
+    "chokidar": "^2.0.4",
+    "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
+    "jquery": "^3.3.1",
+    "node-cmd": "^3.0.0"
+  }
+}
