@@ -1,9 +1,4 @@
-.centro {
-  border: solid transparent;
-  position: absolute;
-  top: 5%;
-  z-index: 1;
-}
+
 img.demo {
   width: 42%;
   left: 22em;
@@ -18,22 +13,35 @@ img.demo {
 }
 
 .contAreas{
-  position: absolute;
-  height: 470px;
-  top: 39px;
-  width: 35em;
-  left: -52px;
+  /* position: absolute; */
+  /* height: 470px; */
+  top: 0px;
+  width: 100%;
+  left: 0px;
 }
 
 .contAreas>img{
   float: left;
-  width: 34%;
-  height: 38%;
+  width: 24%;
+  /* height: 38%; */
   cursor: pointer;
-  margin-left: 57px;
-  margin-top: 65px;
+  margin-left: 7%;
+  margin-top: 3%;
 }
-
+.logo>img {
+  width: 173%;
+  margin-top: -43%;
+  margin-left: -25%;
+}
+.cerrar>img {
+  width: 28%;
+  margin: 9%;
+  margin-left: 70%;
+}
+.juegos>img {
+  width: 107%;
+  margin-top: 15%;
+}
 #logoSelected{
   width: 384px;
   float: left;
@@ -58,16 +66,14 @@ img.demo {
   height: 4px;	
 }
 .btnAbril {
-  width: 37%;
-  height: 48px;
-  margin-top: 19em;
-  margin-left: 43em;
+  width: 86%;
   background: #2AC6A8;
-  border-radius: 26px;
+  border-radius: 3rem;
   color: white;
-  font-size: 24px;
-  z-index: 2;
-  position: absolute;
+  font-size: 241%;
+  margin-top: 39%;
+  margin-left: 11%;
+  padding: 2px 2px 5px 2px;
 }
 
 
@@ -176,12 +182,12 @@ img.sounds:hover {
     }
 span.titulo {
   color: white;
-  font-size: 375%;
+  font-size: 315%;
   position: absolute;
   font-weight: bold;
   font-style: normal;
-  left: 7.8em;
-  top: 9px;
+  left: 7rem;
+  top: 1rem;
   font-family: mont;
 
 }
@@ -189,32 +195,6 @@ span.titulo {
 .plecaAzul{
       /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00a9bc+0,009a90+100 */
       height: 90px;
-      
-      background: #00a9bc; /* Old browsers */
-      background: -moz-linear-gradient(top,  #00a9bc 0%, #009a90 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top,  #00a9bc 0%,#009a90 100%); /* Chrome10-25,Safari5.1-6 */
+      border-bottom: #8cc919 3px solid;
       background: linear-gradient(to bottom,  #00a9bc 0%,#009a90 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a9bc', endColorstr='#009a90',GradientType=0 ); /* IE6-9 */
-    }
-
-.lineaVerde{
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#57b125+0,8cc919+100 */
-      height: 5px;
-      background: #57b125; /* Old browsers */
-      
-      background: -moz-linear-gradient(top,  #57b125 0%, #8cc919 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top,  #57b125 0%,#8cc919 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom,  #57b125 0%,#8cc919 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#57b125', endColorstr='#8cc919',GradientType=0 ); /* IE6-9 */
-}
-
-div {
-  border: solid 1px;
-}
-img.Logo {
-  left: 1%; 
-  top: 0%; 
-  position: absolute; 
-  z-index: 5; 
-  width: 25%;
-}
+       }

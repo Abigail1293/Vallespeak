@@ -10,7 +10,7 @@
   
 
 body{
-	background-image:url("images/fondo.jpg");
+	background-image:url("./image/fondo.jpg");
 	font-family: BibliotecaPlandi, serif;
 	color: #a1a1a1;
 	overflow: hidden;
